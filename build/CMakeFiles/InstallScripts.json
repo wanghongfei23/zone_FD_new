@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"/mnt/d/whf00/Documents/GitHub/zone_FD_new/build/cmake_install.cmake",
+		"/mnt/d/whf00/Documents/GitHub/zone_FD_new/build/src/cmake_install.cmake",
+		"/mnt/d/whf00/Documents/GitHub/zone_FD_new/build/utils/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,9 @@
+/mnt/d/whf00/Documents/GitHub/zone_FD_new/build/CMakeFiles/congFD.dir
+/mnt/d/whf00/Documents/GitHub/zone_FD_new/build/CMakeFiles/symmetrytest.dir
+/mnt/d/whf00/Documents/GitHub/zone_FD_new/build/CMakeFiles/edit_cache.dir
+/mnt/d/whf00/Documents/GitHub/zone_FD_new/build/CMakeFiles/rebuild_cache.dir
+/mnt/d/whf00/Documents/GitHub/zone_FD_new/build/src/CMakeFiles/libcongFD.dir
+/mnt/d/whf00/Documents/GitHub/zone_FD_new/build/src/CMakeFiles/edit_cache.dir
+/mnt/d/whf00/Documents/GitHub/zone_FD_new/build/src/CMakeFiles/rebuild_cache.dir
+/mnt/d/whf00/Documents/GitHub/zone_FD_new/build/utils/CMakeFiles/edit_cache.dir
+/mnt/d/whf00/Documents/GitHub/zone_FD_new/build/utils/CMakeFiles/rebuild_cache.dir

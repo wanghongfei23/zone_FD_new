@@ -1,0 +1,5 @@
+17
+totaltime= 65   Finish
+time= 0   Finish
+timesteps= 23   Finish
+solvertime= 0
