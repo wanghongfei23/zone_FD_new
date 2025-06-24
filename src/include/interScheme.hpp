@@ -1494,9 +1494,9 @@ inline real Teno5_whf_A_S(std::array<real, 5> q)
     // 步骤4：计算模板选择标志位
     //=====================================================================
     unsigned short flag = 0;
-    if (ll > rr_part * beta[0]) flag += 1;
-    if (ll > rr_part * beta[1]) flag += 2;
-    if (ll > rr_part * beta[2]) flag += 4;
+    if (ll < rr_part * beta[0]) flag += 1;
+    if (ll < rr_part * beta[1]) flag += 2;
+    if (ll < rr_part * beta[2]) flag += 4;
 
     // 步骤6：基于标志位选择重构模板（执行插值计算）
     switch (flag) {
@@ -1534,18 +1534,14 @@ inline real Teno5_whf_A(std::array<real, 5> q)
     // 步骤2：计算自适应阈值CT
     //=====================================================================
     // 引入光滑度量 η_k
-    auto calc_eta = [](real a, real b, real c) {
-        const real xi = 1e-3;        // 防止除零的小常数
-        const real Cr = 0.24;        // 调谐参数
-        const real eps_A = (0.9 * Cr) / (1 - 0.9 * Cr) * xi * xi;
-        // 通量差
-        real dq_l = b - a;
-        real dq_r = c - b;
-        // 计算 η_k 值
-        return (std::abs(2 * dq_r * dq_l) + eps_A) 
-              / (dq_r * dq_r + dq_l * dq_l + eps_A);
+    auto calc_eta = [](real a, real b, real c) {             //calc为calculate的缩写
+        const real xi = 1e-3, Cr = 0.24;
+        const real epsilon = (0.9*Cr) / (1 - 0.9*Cr)*xi*xi;
+        real eta1 = (std::abs(2*b*a) + epsilon) / (b*b + a*a + epsilon);
+        real eta2 = (std::abs(2*c*b) + epsilon) / (c*c + b*b + epsilon);
+        return std::min(eta1, eta2);
     };
-    // 求 η_{i+1/2} = η_min = min(η_{i-1}, η_i, η_{i+1})
+    // 计算η_min值
     real eta_min = std::min({
         calc_eta(q[0], q[1], q[2]),
         calc_eta(q[1], q[2], q[3]),
@@ -1578,9 +1574,9 @@ inline real Teno5_whf_A(std::array<real, 5> q)
     // 步骤4：计算模板选择标志位
     //=====================================================================
     unsigned short flag = 0;
-    if (gamma[0]/gamma_sum > CT) flag += 1;
-    if (gamma[1]/gamma_sum > CT) flag += 2;
-    if (gamma[2]/gamma_sum > CT) flag += 4;
+    if (gamma[0]/gamma_sum < CT) flag += 1;
+    if (gamma[1]/gamma_sum < CT) flag += 2;
+    if (gamma[2]/gamma_sum < CT) flag += 4;
 
     // 步骤6：基于标志位选择重构模板（执行插值计算）
     switch (flag) {
@@ -1639,9 +1635,9 @@ inline real Teno5_whf(std::array<real, 5> q)
     // 步骤4：计算模板选择标志位
     //=====================================================================
     unsigned short flag = 0;
-    if (gamma[0]/gamma_sum > CT) flag += 1;
-    if (gamma[1]/gamma_sum > CT) flag += 2;
-    if (gamma[2]/gamma_sum > CT) flag += 4;
+    if (gamma[0]/gamma_sum < CT) flag += 1;
+    if (gamma[1]/gamma_sum < CT) flag += 2;
+    if (gamma[2]/gamma_sum < CT) flag += 4;
 
     // 步骤6：基于标志位选择重构模板（执行插值计算）
     switch (flag) {
@@ -1694,9 +1690,9 @@ inline real Teno5_whf_S(std::array<real, 5> q)
     // 步骤4：计算模板选择标志位
     //=====================================================================
     unsigned short flag = 0;
-    if (ll > rr_part * beta[0]) flag += 1;
-    if (ll > rr_part * beta[1]) flag += 2;
-    if (ll > rr_part * beta[2]) flag += 4;
+    if (ll < rr_part * beta[0]) flag += 1;
+    if (ll < rr_part * beta[1]) flag += 2;
+    if (ll < rr_part * beta[2]) flag += 4;
 
     // 步骤6：基于标志位选择重构模板（执行插值计算）
     switch (flag) {

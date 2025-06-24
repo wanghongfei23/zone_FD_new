@@ -39,13 +39,13 @@ int main()
     // info->interMethod = TENOWHFS;
 
     // Shu-Osher
-     info->endStep=1;
-     info->CFL=0.5;
-     info->outputDt=1.8;
-     info->nCase=1;
-     info->calZone={0,10.0,0,0,0,0};
-     info->iMax={201,2,2};
-     info->dim=1;
+    //  info->endStep=1;
+    //  info->CFL=0.5;
+    //  info->outputDt=1.8;
+    //  info->nCase=1;
+    //  info->calZone={0,10.0,0,0,0,0};
+    //  info->iMax={201,2,2};
+    //  info->dim=1;
 
     // sod tube
     // info->CFL = 0.5;
@@ -84,13 +84,14 @@ int main()
     //  info->dim=1;
 
     // Woodward-Colella
-    //  info->endStep=1;
-    //  info->outputDt=0.038;
+     info->endStep=1;
+     info->outputDt=0.038;
     //  info->CFL=0.4;
-    //  info->nCase=4;
-    //  info->calZone={0,1,0,0,0,0};
-    //  info->iMax={401,2,2};
-    //  info->dim=1;
+     info->CFL=0.1;
+     info->nCase=4;
+     info->calZone={0,1,0,0,0,0};
+     info->iMax={401,2,2};
+     info->dim=1;
 
     // 双稀疏波
     //  info->endStep=100;
@@ -161,7 +162,9 @@ int main()
     //  info->CFL=0.5;
     //  info->nCase=4;
     //  info->calZone={0,4,0,1,0,0};
-    //  info->iMax={801,201,2};
+    //  info->iMax={801,201,2}; //原设定
+    // //  info->iMax={513,129,2};
+    // //  info->iMax={1025,257,2};
     //  info->dim=2;
 
     // file config mode
